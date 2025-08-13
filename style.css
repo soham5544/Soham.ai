@@ -1,0 +1,56 @@
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;margin:0}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#3f51b5;color:#fff}
+.topbar .center{text-align:center}
+.topbar a.logout{color:#fff;margin-left:10px;text-decoration:none;padding:6px 10px;background:#ff5252;border-radius:6px}
+.drawer{position:fixed;top:0;bottom:0;width:260px;background:#fff;box-shadow:2px 0 8px rgba(0,0,0,0.12);padding:12px;overflow:auto;transform:translateX(-100%);transition:transform .25s}
+.drawer.right{right:0;left:auto;transform:translateX(100%)}
+.drawer.open{transform:translateX(0)}
+.chat-container{display:flex;flex-direction:column;height:calc(100vh - 52px)}
+.chat-box{flex:1;padding:12px;overflow-y:auto}
+.input-area{display:flex;padding:10px;background:#fff;border-top:1px solid #e0e0e0}
+#messageInput{flex:1;padding:10px;border:1px solid #ccc;border-radius:8px}
+#sendBtn{margin-left:8px;padding:10px 16px;background:#3f51b5;color:#fff;border:none;border-radius:8px;cursor:pointer}
+.message{max-width:82%;padding:9px 12px;border-radius:12px;margin-bottom:8px;white-space:pre-wrap;word-break:break-word}
+.message.user{align-self:flex-end;background:linear-gradient(180deg,#c8e6c9,#a5d6a7)}
+.message.bot{align-self:flex-start;background:linear-gradient(180deg,#e3f2fd,#bbdefb)}
+.message.system{align-self:center;background:#fff9c4;color:#333;padding:6px 10px;border-radius:8px}
+.auth-box{max-width:360px;margin:80px auto;background:#fff;padding:24px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
+.auth-box h2{text-align:center;margin-bottom:16px}
+.auth-box input{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid #ddd}
+.auth-box button{width:100%;padding:10px;background:#3f51b5;color:#fff;border:none;border-radius:8px;cursor:pointer}
+.error{color:#d32f2f;text-align:center;margin-bottom:8px}
+
+/* Loading Overlay Styles */
+#loadingOverlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #0f172a; /* dark navy bg */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.logo-container {
+    animation: pulse 2s infinite;
+}
+
+.logo-spin {
+    width: 100px;
+    height: 100px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@media(max-width:600px){.drawer{width:220px}}

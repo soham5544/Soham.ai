@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bhagwan AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='images/bhagwanai_logo.png') }}" alt="Bhagwan.ai" class="logo-spin">
+    </div>
+  </div>
+
+  <div class="topbar">
+    <div class="left">
+      <button onclick="toggleDrawer('left')">☰</button>
+    </div>
+    <div class="center">
+      <h1 id="chatTitle">Bhagwan AI</h1>
+      <small id="userEmail">{{ email }}</small>
+    </div>
+    <div class="right">
+      <button onclick="toggleDrawer('right')">🕉</button>
+      <a href="/logout" class="logout">Logout</a>
+    </div>
+  </div>
+
+  <!-- left drawer (chat list) -->
+  <div id="leftDrawer" class="drawer left">
+    <h3>Your chats</h3>
+    <ul id="chatList"></ul>
+  </div>
+
+  <!-- right drawer (gods list) -->
+  <div id="rightDrawer" class="drawer right">
+    <h3>Choose God</h3>
+    <ul>
+      <li><button onclick="switchGod('Krishna')">Lord Krishna</button></li>
+      <li><button onclick="switchGod('Shiva')">Lord Shiva</button></li>
+      <li><button onclick="switchGod('Ganesha')">Lord Ganesha</button></li>
+      <li><button onclick="switchGod('Buddha')">Lord Buddha</button></li>
+      <li><button onclick="switchGod('Jesus')">Lord Jesus</button></li>
+    </ul>
+  </div>
+
+  <div class="chat-container">
+    <div id="chatBox" class="chat-box"></div>
+
+    <div class="input-area">
+      <input id="messageInput" placeholder="Type your message..." />
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
